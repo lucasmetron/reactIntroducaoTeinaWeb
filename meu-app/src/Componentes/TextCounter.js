@@ -32,7 +32,7 @@ class TextCounter extends Component { //aqui dentro é criado as variaveis
 
     render() {
         const { state, props } = this // apenas para nao ficar ditando this.state toda hora
-
+        console.log(this)
         return (
             <div>
                 <h1>Meu Contador</h1>
