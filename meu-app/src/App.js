@@ -12,7 +12,7 @@ class App extends Component {
           id: 1,
           name: 'React',
           category: 'JavaScript',
-          image: 'https://natahouse.com/static/a7226e980cdd03e0ea4400310225cf55/e2ca6/react_js.jpg'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
         },
         {
           id: 2,
@@ -31,6 +31,8 @@ class App extends Component {
     const courseIndex = courses.findIndex(course => course.id == courseId);
     courses.splice(courseIndex, 1);
     this.setState({ courses: courses })
+    // let nova = courses.filter(item => item.id != courseId) // alterando item selecionado com filter
+    // this.setState({ courses: nova })
 
   }
 
