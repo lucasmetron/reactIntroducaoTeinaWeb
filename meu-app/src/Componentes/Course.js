@@ -14,20 +14,21 @@ export default class Course extends Component {
 
     remove() {
         this.props.onRemove(this.props.course.id)
-        console.log(this)
+        // console.log(this)
     }
 
+
     render() {
+        // console.log(this.props.course.id)
 
         const { props } = this,
             { course } = props
 
-        console.log(this)
 
         return (
             <li className='course'>
                 <div>{course.category}</div>
-                <button onClick={() => { this.remove() }}>X</button>
+                <button onClick={this.remove}>X</button>
                 <img src={course.image} alt={course.name} />
                 <div>{course.name}</div>
             </li>
