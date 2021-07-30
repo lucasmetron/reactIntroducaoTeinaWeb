@@ -41,13 +41,12 @@ class App extends Component {
 
     const { state } = this
 
-
     return (
       <div>
 
         <ul className='courses-list'>
           {
-            state.courses.map((course, i) => {
+            state.courses.map((course) => {
               return (
                 <Course course={course} onRemove={this.remove} />
               )
