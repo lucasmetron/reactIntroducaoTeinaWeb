@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css'
 import Course from './Componentes/Course'
 import MyForm from './Componentes/MyForm';
+import MyForm2 from './Componentes/MyForm2';
 import TextCounter from './Componentes/TextCounter'
 
 class App extends Component {
@@ -46,8 +47,10 @@ class App extends Component {
     return (
       <div>
 
-        <TextCounter limit={20} />
+        {/* <TextCounter limit={20} /> */}
         <MyForm />
+        <hr />
+        <MyForm2 />
 
         {/* <ul className='courses-list'>
           {
