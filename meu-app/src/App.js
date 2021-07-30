@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
 import Course from './Componentes/Course'
+import MyForm from './Componentes/MyForm';
+import TextCounter from './Componentes/TextCounter'
 
 class App extends Component {
 
@@ -44,7 +46,10 @@ class App extends Component {
     return (
       <div>
 
-        <ul className='courses-list'>
+        <TextCounter limit={20} />
+        <MyForm />
+
+        {/* <ul className='courses-list'>
           {
             state.courses.map((course) => {
               return (
@@ -53,7 +58,7 @@ class App extends Component {
 
             })
           }
-        </ul>
+        </ul> */}
 
       </div>
     );
