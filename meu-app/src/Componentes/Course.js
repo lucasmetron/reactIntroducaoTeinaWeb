@@ -14,13 +14,10 @@ export default class Course extends Component {
 
     remove() {
         this.props.onRemove(this.props.course.id)
-        // console.log(this)
     }
 
 
     render() {
-        // console.log(this.props.course.id)
-
         const { props } = this,
             { course } = props
 
