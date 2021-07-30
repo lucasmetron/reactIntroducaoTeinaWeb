@@ -22,7 +22,7 @@ export default class MyForm2 extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label >
                     Nome:
-                    <input type="text" name='name' ref={this.inputName} />
+                    <input defaultValue='teste' type="text" name='name' ref={this.inputName} />
                 </label>
                 <input type="submit" />
                 {console.log(this.inputName)}
