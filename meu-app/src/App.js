@@ -30,7 +30,7 @@ class App extends Component {
 
   remove(courseId) {
     const { courses } = this.state;
-    const courseIndex = courses.findIndex(course => course.id == courseId);
+    const courseIndex = courses.findIndex(course => course.id === courseId);
     courses.splice(courseIndex, 1);
     this.setState({ courses: courses })
     // let nova = courses.filter(item => item.id != courseId) // alterando item selecionado com filter

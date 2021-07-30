@@ -17,26 +17,16 @@ export default class MyForm extends Component {
             { 'name': 'Laranja', 'value': 'laranja' },
         ];
 
-        this.handleChange1 = this.handleChange1.bind(this)
-        this.handleChange2 = this.handleChange2.bind(this)
-        this.handleChange3 = this.handleChange3.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+
     }
 
-    handleChange1(event) {
+    handleChange(event) {
+        const target = event.target
+        const value = target.type === 'checkbox' ? target.checked : target.value
+        const name = target.name;
         this.setState({
-            name: event.target.value
-        })
-    }
-
-    handleChange2(event) {
-        this.setState({
-            message: event.target.value
-        })
-    }
-
-    handleChange3(event) {
-        this.setState({
-            fruit: [this.state.fruit, event.target.value]
+            [name]: value
         })
     }
 
@@ -47,23 +37,23 @@ export default class MyForm extends Component {
             <form action="">
                 <label >
                     Nome:
-                    <input type="text" value={state.name} onChange={this.handleChange1} /> {state.name}
+                    <input type="text" name='name' value={state.name} onChange={this.handleChange} /> {state.name}
                 </label>
                 <br />
                 <label >
                     Mensagem:
-                    <textarea value={state.message} onChange={this.handleChange2} /> {state.message}
+                    <textarea value={state.message} name='message' onChange={this.handleChange} /> {state.message}
                 </label>
                 <input type="submit" />
                 <br />
                 <label >
                     Fruta:
-                    <select value={state.fruit} onChange={this.handleChange3}>
+                    <select value={state.fruit} name='fruit' onChange={this.handleChange}>
                         {
-                            this.fruits.map(fruit => <option value={fruit.value}>{fruit.name}</option>)
+                            this.fruits.map((fruit, i) => <option key={i} value={fruit.value}>{fruit.name}</option>)
                         }
                     </select>
-                    {console.log(state.fruit)}
+                    {state.fruit}
                 </label>
             </form>
         );
