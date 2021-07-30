@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css'
 import Course from './Componentes/Course'
-import MyForm from './Componentes/MyForm';
-import MyForm2 from './Componentes/MyForm2';
-import TextCounter from './Componentes/TextCounter'
+import NewCourseForm from './Componentes/NewCourseForm';
+// import MyForm from './Componentes/MyForm';
+// import MyForm2 from './Componentes/MyForm2';
+// import TextCounter from './Componentes/TextCounter'
 
 class App extends Component {
 
@@ -25,8 +26,18 @@ class App extends Component {
         }
       ],
     }
-
+    this.add = this.add.bind(this)
     this.remove = this.remove.bind(this);
+  }
+
+  add(course) {
+    const courses = this.state.courses
+    // const newCourse = Object.assign({}, course, { id: (Date.now()) })
+    // courses.push(newCourse)
+    course.id = Date.now();
+    courses.push(course)
+    this.setState({ courses })
+    console.log(courses)
   }
 
   remove(courseId) {
@@ -47,12 +58,9 @@ class App extends Component {
     return (
       <div>
 
-        {/* <TextCounter limit={20} /> */}
-        <MyForm />
-        <hr />
-        <MyForm2 />
+        <NewCourseForm onSubmit={this.add} />
 
-        {/* <ul className='courses-list'>
+        <ul className='courses-list'>
           {
             state.courses.map((course) => {
               return (
@@ -61,7 +69,14 @@ class App extends Component {
 
             })
           }
-        </ul> */}
+        </ul>
+
+
+        {/* 
+        <TextCounter limit={20} />
+        <MyForm />
+        <MyForm2 /> 
+        */}
 
       </div>
     );
