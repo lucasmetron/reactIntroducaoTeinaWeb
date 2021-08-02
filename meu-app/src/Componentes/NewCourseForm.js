@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 
 export default class NewCourseForm extends Component {
     static defaultProps = {
+        categories: [],
         onsubmit: () => { }
     }
-
 
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            category: '',
+            category: [{}],
             image: ''
         }
 
@@ -39,12 +39,11 @@ export default class NewCourseForm extends Component {
         this.setState({
             [name]: value,
         })
-
-        console.log(this)
     }
 
     render() {
         const { props, state } = this
+        { console.log(this) }
         return (
             <form className='course-form' onSubmit={this.handleSubmit}>
                 <label>
@@ -61,11 +60,11 @@ export default class NewCourseForm extends Component {
                     <span>Categoria: </span>
                     <select name='category' value={state.category} onChange={this.handleChange}>
                         <option value='' selected>Selecionar</option>
-                        <option value='JavaScript'>JavaScript</option>
-                        <option value='PHP'>PHP</option>
-                        <option value='Ruby'>Ruby</option>
-                        <option value='Python'>Python</option>
-                        <option value='C#'>C#</option>
+                        {
+                            props.categories.map(category => (
+                                <option value={category.name}>{category.name}</option>
+                            ))
+                        }
                     </select>
                 </label>
 
