@@ -8,11 +8,20 @@ export default class MyForm2 extends Component {
         this.inputName = React.createRef()
 
         this.handleSubmit = this.handleSubmit.bind(this)
+
+        this.state = {
+            list: []
+        }
     }
 
     handleSubmit(event) {
         console.log(this.inputName.current.value)
         event.preventDefault(); //evitar o padrão do botao submit de enviar formulario
+        fetch(`https://api.github.com/search/repositories?q=${this.inputName.current.value}`)
+            .then(response => response.json())
+            .then(data => this.setState({
+                list: data.items
+            }))
     }
 
     render() {
@@ -22,11 +31,17 @@ export default class MyForm2 extends Component {
             <form onSubmit={this.handleSubmit}>
                 <label >
                     Nome:
-                    <input defaultValue='teste' type="text" name='name' ref={this.inputName} />
+                    <input type="text" name='name' ref={this.inputName} />
                 </label>
                 <input type="submit" />
-                {console.log(this.inputName)}
+
+                <ul>
+                    {state.list.map(item => <li>{item.full_name}</li>)}
+                </ul>
+
+
             </form>
+
 
         );
 

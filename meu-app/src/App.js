@@ -3,7 +3,7 @@ import './App.css'
 import Course from './Componentes/Course'
 import NewCourseForm from './Componentes/NewCourseForm';
 // import MyForm from './Componentes/MyForm';
-// import MyForm2 from './Componentes/MyForm2';
+import MyForm2 from './Componentes/MyForm2';
 // import TextCounter from './Componentes/TextCounter'
 
 class App extends Component {
@@ -58,7 +58,7 @@ class App extends Component {
     return (
       <div>
 
-        <NewCourseForm onSubmit={this.add} />
+        {/* <NewCourseForm onSubmit={this.add} />
 
         <ul className='courses-list'>
           {
@@ -69,14 +69,14 @@ class App extends Component {
 
             })
           }
-        </ul>
+        </ul> */}
 
 
-        {/* 
-        <TextCounter limit={20} />
-        <MyForm />
-        <MyForm2 /> 
-        */}
+
+        {/* <TextCounter limit={20} />
+        <MyForm /> */}
+        <MyForm2 />
+
 
       </div>
     );
