@@ -32,7 +32,6 @@ class App extends Component {
 
     ])
 
-
     this.setState({
       courses,
       categories,
